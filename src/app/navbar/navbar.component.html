@@ -1,0 +1,6 @@
+{{ inputValue }}
+<div class="navbar">
+    @for (category of categories; track $index){
+        <button mat-raised-button color="primary"> {{ getCategory(category) }} </button>
+    }
+</div>
