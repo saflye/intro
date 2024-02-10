@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -12,10 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 export class NavbarComponent implements OnInit{
   categories:string[] | any = [];
   @Input() inputValue= "";
+  @Output() categoryNameChanged = new EventEmitter<string>();
 
-  constructor(private _http: HttpClient){
-
-  }
+  constructor(private _http: HttpClient){ }
   ngOnInit(){
     this.getCategories();
   }
@@ -38,5 +37,8 @@ export class NavbarComponent implements OnInit{
   else if (category ==="women's clothing") return "Kadın kıyafet";
   else return " ";
 
+}
+changeCategory(category: string){
+  this.categoryNameChanged.emit(category);
 }
 }

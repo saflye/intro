@@ -1,2 +1,2 @@
-<app-navbar inputValue="Test"></app-navbar>
-<app-product-list></app-product-list>
+<app-navbar inputValue="Test" (categoryNameChanged)="getCategoryName($event)"></app-navbar>
+<app-product-list [categoryName]="categoryName"></app-product-list>

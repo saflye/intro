@@ -12,6 +12,14 @@ import { ProductListComponent} from './product-list/product-list.component';
   imports: [RouterOutlet, NavbarComponent, ProductListComponent]
 })
 export class AppComponent{
+  categoryName:string="";
+
+  getCategoryName(categoryName:string){
+    console.log(categoryName);
+    
+    this.categoryName=categoryName ;
+
+  }
 
 };
 

@@ -1,15 +1,16 @@
 <h1 style="text-align: center;">Products</h1>
 <div class="container">
-  @for(product of products; track $index){
+  @for(product of filterData; track $index){
     <div class="card">
       <div style="display: flex; flex-direction: row;">
-        <div>{{ product.id + '-)' }}</div>
-        <div>{{product.title}}</div>
+        <div>{{ product?.id + '-)' }}</div>
+        <div>{{product?.title}}</div>
      </div>
      <img [src]="product.image" style="height: 300px; width: 300px;">
-     <div>{{ product.description }} </div>
-     <div style="font-weight: 600;">{{ product.price + '$' }}</div>
-     <button (click)="openDialog(product)">Detay</button>
+     <div>{{ product?.description }} </div>
+     <div style="font-weight: 600;">{{ product?.price + '$' }}</div>
+     <button (click)="openDialog(product)" style="background-color: rgb(170, 124, 124)">Detay</button>
+     <button (click)="deleteProduct(product.id)" style="background-color: rgb(170, 124, 124)">Sil</button>
     </div>
      }
 </div>
